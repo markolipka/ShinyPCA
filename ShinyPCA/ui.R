@@ -98,8 +98,11 @@ shinyUI(fluidPage(
                      
                      column(3,
                             checkboxInput('header', 'Header', TRUE),
-                            textInput("na.strings", "NA String",
-                                      value = ""))),
+                            selectizeInput("na.strings", "NA String",
+                                      choices = c("", "NA", "na", "N/A", "<1"),
+                                      selected = "",
+                                      options = list(create = TRUE),
+                                      multiple = TRUE))),
                  
                  fluidRow(fileInput('file1', 'Choose file to upload',
                                     accept = c(
